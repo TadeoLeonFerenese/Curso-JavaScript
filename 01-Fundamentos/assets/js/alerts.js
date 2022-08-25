@@ -1,0 +1,1 @@
+console.log(minOMBRE); // ESTO LO LLAMO DESDE EL DIRECTORIO
