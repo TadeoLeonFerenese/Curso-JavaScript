@@ -38,5 +38,10 @@ var minOMBRE = "Tadeo"; // ESTO ES UNA MALA PRACTICA !!!
 // Const no te deja reasignar valores
 // var te deja reasignar el valor de sus valores siempre pero es la forma vieja de hacer valores
 // let te deja reasignar pero de forma local
+//ej
+
+var outereidth = 100000000;
+// Si uso window.outerwidth en el buscador va a salir un valor erroneo
+//Pero si uso let o const no se sobreescribe el valor original.
 
 //EL MODO DEBUG SE PUEDE UTILIZAR PARA VERIFICAR EL FUNCIONAMIENTO PUNTO POR PUNTO EN EL CODIGO
