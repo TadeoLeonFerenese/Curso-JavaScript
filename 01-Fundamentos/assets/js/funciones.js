@@ -10,7 +10,7 @@ const saludar2 = function saludar(nombre) {
   //Funcion anonima, no se puede reutilizar en la apk por la variable "const"
   console.log("Hola " + nombre);
 };
-
+//Arrow function
 const saludarArrow = (algo) => {
   console.log("hola " + algo);
 };
