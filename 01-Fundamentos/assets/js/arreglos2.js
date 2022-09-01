@@ -17,3 +17,14 @@ console.log({ nuevaLongitud, juegos });
 
 nuevaLongitud = juegos.unshift("Legend of Mana"); //El metodo Unsift sirve para colocar un nuevo elemento en el principio del array
 console.log({ nuevaLongitud, juegos });
+
+let juegoBorrado = juegos.pop();
+console.log({ juegoBorrado, juegos }); // El metodo POP borra el ultimo elemento del array
+
+let pos = 1; //Establesco una posicion
+
+let juegosBorrados = juegos.splice(pos, 2); //recive un punto inicial (pos) y  cuantos elementos quiere borrar y retorna un nuevo array
+console.log({ juegosBorrados, juegos });
+
+let metroidIndex = juegos.indexOf("Metroid");
+console.log({ metroidIndex, juegos });
