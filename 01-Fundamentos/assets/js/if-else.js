@@ -29,3 +29,20 @@ if (dia === 0) {
 } else {
   console.log("No es lunes, martes o domingo...");
 }
+
+// PRIMER EJERCICIO TIPO LABORATORIO
+// Sin usar if Else, o Switch, unicamente usando objetos
+
+const dias = {
+  diasSemana: [
+    "lunes",
+    "martes",
+    "miercoles",
+    "jueves",
+    "viernes",
+    "sabado",
+    "domingo",
+  ],
+};
+
+console.log(dias.diasSemana[2] || "Dia no definido"); // ""||"" esto quiere decir OR
