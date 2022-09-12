@@ -4,7 +4,7 @@ const heroes = ["Batman", "Superman", "Mujer Maravilla", "Aquaman"];
 
 console.warn("For tradicional");
 // el for esta construido por "for(inicio de variable; condicion; condicion de incremento)""
-for (let i = 0; i < heroes.lenght; i++) {
+for (let i = 0; i < heroes.length; i++) {
   console.log(heroes[i]);
 }
 
