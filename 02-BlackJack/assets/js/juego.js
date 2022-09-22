@@ -11,6 +11,16 @@ let deck = []; //aca podes crear un array con todas las cartas pero no es eficie
 const tipos = ["C", "D", "H", "S"];
 const especiales = ["A", "J", "Q", "K"];
 
+let puntosJugador = 0;
+let puntosComputadora = 0;
+
+// <!--Referencias del HTML->
+
+const btnPedir = document.querySelector("#btnPedir");
+
+const divCartasJugador = document.querySelectorAll("#jugador-cartas");
+const puntosHTML = document.querySelectorAll("small");
+
 // <!--Creo el deck->
 const crearDeck = () => {
   for (let i = 2; i <= 10; i++) {
@@ -38,11 +48,7 @@ const pedirCarta = () => {
   if (deck.length === 0) {
     throw "The Deck is empty"; //Esto da error cuando no hay mas cartas en este caso
   }
-
   const carta = deck.pop();
-
-  console.log(deck);
-  console.log(carta);
   return carta;
 };
 // console.log(carta);
@@ -55,18 +61,13 @@ const valorCarta = (carta) => {
   const valor = carta.substring(0, carta.length - 1); // substring es por que si lo uso con un array el valor 10 no lo toma
   return isNaN(valor) ? (valor === "A" ? 10 : 11) : valor * 1;
 };
-// Forma LARGA
-//   let puntos = 0;
-//   console.log({ valor });
-//isNaN sirve para determinar que el valor no es un numero
-//   if (isNaN(valor)) {
-//     puntos = valor === "A" ? 10 : 11;
-//   } else {
-//     console.log("Es un numero");
-//     puntos = valor * 1; // Lo multiplico por 1 para pasarlo de string a number
-//   }
-//   console.log(puntos);
-// };
 
-const valor = valorCarta(pedirCarta());
-console.log({ valor });
+// <!--Eventos->
+btnPedir.addEventListener("click", () => {
+  //nombre de la clase, escuchador de eventos (escuchao cuando hago click, call back)
+
+  const carta = pedirCarta();
+
+  puntosJugador = puntosJugador + valorCarta(carta);
+  puntosHTML[0].innerText = puntosJugador; // con esta linea pusheo los puntos del jugador si uso "1" los de la computadora
+});
