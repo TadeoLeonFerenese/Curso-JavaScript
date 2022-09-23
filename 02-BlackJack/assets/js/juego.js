@@ -17,8 +17,11 @@ let puntosComputadora = 0;
 // <!--Referencias del HTML->
 
 const btnPedir = document.querySelector("#btnPedir");
+const btnDetener = document.querySelector("#btnDetener");
+const btnNuevo = document.querySelector("#btnNuevo");
 
-const divCartasJugador = document.querySelectorAll("#jugador-cartas");
+const divCartasJugador = document.querySelector("#jugador-cartas");
+const divcartasComputadora = document.querySelector("#computadora-cartas");
 const puntosHTML = document.querySelectorAll("small");
 
 // <!--Creo el deck->
@@ -62,6 +65,28 @@ const valorCarta = (carta) => {
   return isNaN(valor) ? (valor === "A" ? 10 : 11) : valor * 1;
 };
 
+// <!-- turno computadora -->
+
+const turnoComputadora = (puntosMinimos) => {
+  do {
+    const carta = pedirCarta();
+
+    puntosComputadora = puntosComputadora + valorCarta(carta);
+    puntosHTML[1].innerText = puntosComputadora; // con esta linea pusheo los puntos del jugador si uso "1" los de la computadora
+
+    // <!--IMG de las cartas -->
+    const imgCarta = document.createElement("img");
+    imgCarta.src = `assets/cartas/${carta}.png`; //cualquier valor aparecera de forma Dinamica
+    imgCarta.classList.add("carta");
+    // <!--DIV de las cartas -->
+    divcartasComputadora.append(imgCarta);
+
+    if (puntosMinimos > 21) {
+      break;
+    }
+  } while (puntosComputadora < puntosMinimos && puntosMinimos <= 21);
+};
+
 // <!--Eventos->
 btnPedir.addEventListener("click", () => {
   //nombre de la clase, escuchador de eventos (escuchao cuando hago click, call back)
@@ -70,4 +95,33 @@ btnPedir.addEventListener("click", () => {
 
   puntosJugador = puntosJugador + valorCarta(carta);
   puntosHTML[0].innerText = puntosJugador; // con esta linea pusheo los puntos del jugador si uso "1" los de la computadora
+
+  // <!--IMG de las cartas -->
+  const imgCarta = document.createElement("img");
+  imgCarta.src = `assets/cartas/${carta}.png`; //cualquier valor aparecera de forma Dinamica
+  imgCarta.classList.add("carta");
+  // <!--DIV de las cartas -->
+  divCartasJugador.append(imgCarta);
+
+  // <!-- Logica de los puntos -->
+
+  if (puntosJugador > 21) {
+    console.warn("Lo siento Perdiste");
+    btnPedir.disabled = true;
+    btnDetener.disabled = true;
+    turnoComputadora(puntosJugador);
+  } else if (puntosJugador === 21) {
+    console.warn("21, genial!");
+    btnPedir.disabled = true;
+    turnoComputadora(puntosJugador);
+  }
+});
+
+btnNuevo.addEventListener("click", () => {
+  location.reload();
+});
+btnDetener.addEventListener("click", () => {
+  btnPedir.disabled = true;
+  btnDetener.disabled = true;
+  turnoComputadora(puntosJugador);
 });
