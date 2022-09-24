@@ -85,6 +85,16 @@ const turnoComputadora = (puntosMinimos) => {
       break;
     }
   } while (puntosComputadora < puntosMinimos && puntosMinimos <= 21);
+
+  setTimeout(() => {
+    if (puntosMinimos > 21) {
+      alert("Lo siento Perdiste :(");
+    } else if (puntosMinimos === puntosComputadora) {
+      alert("Nadie gana, es un Empate");
+    } else if (puntosComputadora > 21) {
+      alert("Ganaste!");
+    }
+  }, 10);
 };
 
 // <!--Eventos->
@@ -113,6 +123,10 @@ btnPedir.addEventListener("click", () => {
   } else if (puntosJugador === 21) {
     console.warn("21, genial!");
     btnPedir.disabled = true;
+  } else if (puntosJugador === puntosComputadora) {
+    console.warn("Ninguno gana");
+    btnPedir.disabled = true;
+    btnDetener.disabled = true;
     turnoComputadora(puntosJugador);
   }
 });
