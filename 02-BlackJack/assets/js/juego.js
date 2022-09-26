@@ -87,16 +87,17 @@ const turnoComputadora = (puntosMinimos) => {
   } while (puntosComputadora < puntosMinimos && puntosMinimos <= 21);
 
   setTimeout(() => {
-    if (puntosMinimos > 21) {
-      alert("Lo siento Perdiste :(");
-    } else if (puntosMinimos === puntosComputadora) {
-      alert("Nadie gana, es un Empate");
+    if (puntosComputadora === puntosMinimos) {
+      alert("Nadie gana :(");
+    } else if (puntosMinimos > 21) {
+      alert("Computadora gana");
     } else if (puntosComputadora > 21) {
-      alert("Ganaste!");
+      alert("Jugador Gana");
+    } else {
+      alert("Computadora Gana");
     }
-  }, 10);
+  }, 100);
 };
-
 // <!--Eventos->
 btnPedir.addEventListener("click", () => {
   //nombre de la clase, escuchador de eventos (escuchao cuando hago click, call back)
@@ -116,15 +117,12 @@ btnPedir.addEventListener("click", () => {
   // <!-- Logica de los puntos -->
 
   if (puntosJugador > 21) {
-    console.warn("Lo siento Perdiste");
+    console.warn("Lo siento mucho, perdiste");
     btnPedir.disabled = true;
     btnDetener.disabled = true;
     turnoComputadora(puntosJugador);
   } else if (puntosJugador === 21) {
     console.warn("21, genial!");
-    btnPedir.disabled = true;
-  } else if (puntosJugador === puntosComputadora) {
-    console.warn("Ninguno gana");
     btnPedir.disabled = true;
     btnDetener.disabled = true;
     turnoComputadora(puntosJugador);
@@ -132,7 +130,23 @@ btnPedir.addEventListener("click", () => {
 });
 
 btnNuevo.addEventListener("click", () => {
-  location.reload();
+  //FORMA FACIL ( receteando el navegador )
+  // location.reload();
+
+  //FORMA LARGA
+  console.clear;
+
+  deck = [];
+  deck = crearDeck();
+  puntosJugador = 0;
+  puntosComputadora = 0;
+
+  puntosHTML[0].innerText = 0;
+  puntosHTML[1].innerText = 0;
+  divCartasJugador.innerHTML = "";
+  divcartasComputadora.innerHTML = "";
+  btnDetener.disabled = false;
+  btnPedir.disabled = false;
 });
 btnDetener.addEventListener("click", () => {
   btnPedir.disabled = true;
