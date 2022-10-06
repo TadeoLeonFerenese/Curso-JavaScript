@@ -7,7 +7,7 @@
 // <!--Modulos-->
 //Es como una funcion anonima digamos
 
-(() => {
+const miModulo = (() => {
   ("use strict"); //ayuda para no tener tantos errores
 
   //reglas: hay que alcanzar los 21 puntos o acercarnos, si nos pasamos perdemos
@@ -40,8 +40,8 @@
     puntosHTML.forEach((elem) => (elem.innerText = 0));
     divCartasJugadores.forEach((elem) => (elem.innerHTML = ""));
 
-    btnPedir.disabled = false;
     btnDetener.disabled = false;
+    btnPedir.disabled = false;
   };
   // <!--Creo el deck->
   const crearDeck = () => {
@@ -93,6 +93,23 @@
     // <!--DIV de las cartas -->
     divCartasJugadores[turno].append(imgCarta);
   };
+
+  const determinarGanador = () => {
+    const [puntosMinimos, puntosComputadora] = puntosJugadores;
+
+    setTimeout(() => {
+      if (puntosComputadora === puntosMinimos) {
+        alert("Nadie gana :(");
+      } else if (puntosMinimos > 21) {
+        alert("Computadora gana");
+      } else if (puntosComputadora > 21) {
+        alert("Jugador Gana");
+      } else {
+        alert("Computadora Gana");
+      }
+    }, 100);
+  };
+
   // <!-- turno computadora -->
 
   const turnoComputadora = (puntosMinimos) => {
@@ -107,17 +124,7 @@
       }
     } while (puntosComputadora < puntosMinimos && puntosMinimos <= 21);
 
-    setTimeout(() => {
-      if (puntosComputadora === puntosMinimos) {
-        alert("Nadie gana :(");
-      } else if (puntosMinimos > 21) {
-        alert("Computadora gana");
-      } else if (puntosComputadora > 21) {
-        alert("Jugador Gana");
-      } else {
-        alert("Computadora Gana");
-      }
-    }, 100);
+    determinarGanador();
   };
   // <!--Eventos->
   btnPedir.addEventListener("click", () => {
@@ -148,23 +155,17 @@
     // location.reload();
 
     //FORMA LARGA
-    console.clear;
     inicializarJuego();
-    // deck = [];
-    // deck = crearDeck();
-    // puntosJugador = 0;
-    // puntosComputadora = 0;
-
-    // puntosHTML[0].innerText = 0;
-    // puntosHTML[1].innerText = 0;
-    // divCartasJugador.innerHTML = "";
-    // divcartasComputadora.innerHTML = "";
-    // btnDetener.disabled = false;
-    // btnPedir.disabled = false;
   });
+
   btnDetener.addEventListener("click", () => {
     btnPedir.disabled = true;
     btnDetener.disabled = true;
     turnoComputadora(puntosJugadores[0]);
   });
+
+  //TODO LO QUE ESTA EN ESTE RETURN ES PUBLICO, EL RESTO NO
+  return {
+    nuevoJuego: inicializarJuego,
+  };
 })();
