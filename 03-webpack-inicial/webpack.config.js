@@ -14,6 +14,10 @@ module.exports = {
           sources: false, //se deja en false por que mueve automaticamente archivos y por eso se deja en False
         },
       },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
 
@@ -22,8 +26,11 @@ module.exports = {
   plugins: [
     new HtmlWebpack({
       title: "Mi webpack App",
-      // filename: "holamundo.html",
       template: "./src/index.html",
+      filename: "./index.html",
+      // title: "Mi webpack App",
+      // // filename: "holamundo.html",
+      // template: "./src/index.html",
     }),
   ],
 };
