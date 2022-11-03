@@ -1,8 +1,14 @@
 //Importo la funcion "saludar del archivo  Componentes "
-import { saludar } from "./js/componentes.js"; //Esto sirve para importar como en react pero de esta forma es webpack manual
 import "./styles.css";
-const nombre = "Tadeo";
 
-saludar(nombre);
+import { Todo, TodoList } from "./classes";
 
-//ejecuto el main con el comando "npm run build"
+const todoList = new TodoList();
+
+const tarea = new Todo("Aprender ");
+const tarea2 = new Todo("Comprar un Fernet ");
+
+todoList.nuevoTodo(tarea);
+todoList.nuevoTodo(tarea2);
+
+console.log(todoList);
