@@ -12,3 +12,10 @@ todoList.nuevoTodo(tarea);
 console.log(todoList);
 
 crearTodoHtml(tarea);
+
+// localStorage.setItem("mi-key", "ABC123");
+// sessionStorage.setItem("mi-key", "ABC123");
+
+// setTimeout(() => {
+//   localStorage.removeItem("mi-key");
+// }, 1500);
