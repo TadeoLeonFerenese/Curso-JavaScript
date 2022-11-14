@@ -6,12 +6,14 @@ import { crearTodoHtml } from "./js/componentes";
 
 export const todoList = new TodoList();
 
-const tarea = new Todo("Aprender Javascript");
-todoList.nuevoTodo(tarea);
+todoList.todos.forEach(crearTodoHtml);
 
-console.log(todoList);
+// const tarea = new Todo("Aprender Javascript");
+// todoList.nuevoTodo(tarea);
 
-crearTodoHtml(tarea);
+// console.log(todoList);
+
+// crearTodoHtml(tarea);
 
 // localStorage.setItem("mi-key", "ABC123");
 // sessionStorage.setItem("mi-key", "ABC123");
