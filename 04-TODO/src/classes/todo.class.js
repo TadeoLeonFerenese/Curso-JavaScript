@@ -1,4 +1,17 @@
+import { todoList } from "..";
+
 export class Todo {
+  // El static sirve para que llave como obj y no instancas del todo
+  static fromJson({ id, tarea, completado, creado }) {
+    const tempTodo = new todoList(tarea);
+
+    tempTodo.id = id;
+    tempTodo.completado = completado;
+    tempTodo.creado = creado;
+
+    return tempTodo;
+  }
+
   constructor(tarea) {
     this.tarea = tarea;
 
