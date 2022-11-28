@@ -7,7 +7,7 @@ const divTodoList = document.querySelector(".todo-list");
 const txtInput = document.querySelector(".new-todo");
 const btnBorrar = document.querySelector(".clear-completed");
 const ulFiltors = document.querySelector(".filters");
-const anchotrFiltros = document.querySelectorAll(".filtro");
+const anchorFiltros = document.querySelectorAll(".filtro");
 
 export const crearTodoHtml = (todo) => {
   const htmlTodo = `
@@ -76,7 +76,7 @@ ulFiltors.addEventListener("click", (event) => {
     return;
   }
 
-  anchotrFiltros.forEach((elem) => elem.classList.remove("selected"));
+  anchorFiltros.forEach((elem) => elem.classList.remove("selected"));
 
   for (const elemento of divTodoList.children) {
     elemento.classList.remove("hidden");
