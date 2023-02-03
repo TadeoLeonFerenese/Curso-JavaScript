@@ -5,6 +5,7 @@ import { callbacksComponent } from "./src/conceptos/02-callbacks";
 import { promiseComponent } from "./src/conceptos/03-promises";
 import { promiseRaceComponent } from "./src/conceptos/04-promise-race.js";
 import { asyncComponent } from "./src/conceptos/05-async.js";
+import { asyncAwaitComponent } from "./src/conceptos/06-async-await";
 
 document.querySelector("#app").innerHTML = `
   <div>
@@ -29,4 +30,5 @@ const element = document.querySelector(".card");
 // callbacksComponent(element);
 // promiseComponent(element);
 // promiseRaceComponent(element);
-asyncComponent(element);
+// asyncComponent(element);
+asyncAwaitComponent(element);

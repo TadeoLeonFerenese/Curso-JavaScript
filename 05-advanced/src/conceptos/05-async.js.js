@@ -3,6 +3,8 @@
  * @param {HTMLDivElement} element
  */
 
+import { heroes } from "../data/heroes";
+
 export const asyncComponent = (element) => {
   const id1 = "5d86371fd55e2e2a30fe1ccb";
   findHero(id1)
@@ -14,7 +16,9 @@ export const asyncComponent = (element) => {
  * @param {String} id
  */
 //!El async transforma el objeto en una promesa
-const findHero = async () => {
-  const hero = hero.find((hero) => hero.id === id);
+const findHero = async (id) => {
+  const hero = heroes.find((hero) => hero.id === id);
+  if (!hero) throw `Hero with ${id} not found`;
+
   return hero;
 };
