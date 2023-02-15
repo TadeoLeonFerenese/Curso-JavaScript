@@ -38,6 +38,8 @@ h1 {
 }
 
 #app {
+  border: solid 2px black;
+  border-radius: 5%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -45,15 +47,16 @@ h1 {
 }
 
 .logo {
-  height: 3em;
-  padding: 1.5em;
+  border-radius: 20%;
+  height: 10em;
+  padding: 1em;
   will-change: filter;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+  filter: drop-shadow(0 0 2em #4e4d4aaa);
 }
 
 .card {
@@ -71,12 +74,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background: #ffcc00;
+  /* border-color: #ab8900; */
+  filter: drop-shadow(0 0 0.75em #4e4d4aaa);
 }
 button:focus,
 button:focus-visible {
