@@ -4,7 +4,7 @@
  * @returns {Object} Quote information
  */
 const fetchQuote = async () => {
-  const res = await fetch(" https://digi-api.com/api/v1/digimon "); //metodo para realizar una peticion http
+  const res = await fetch(" https://api.breakingbadquotes.xyz/v1/quotes"); //metodo para realizar una peticion http
   console.log(res);
 };
 
