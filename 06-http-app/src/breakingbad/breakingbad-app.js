@@ -4,16 +4,11 @@
  * @returns {Object} Quote information
  */
 const fetchQuote = async () => {
-  // <<<<<<< HEAD
-  // const res = await fetch(" https://api.breakingbadquotes.xyz/v1/quotes"); //metodo para realizar una peticion http
-  // console.log(res);
-  // =======
   const res = await fetch(" https://api.breakingbadquotes.xyz/v1/quotes "); //metodo para realizar una peticion http
   const data = await res.json(); //El Json se utiliza para obtener el bodi de la data (api)
 
   console.log(data[0]);
   return data[0];
-  // >>>>>>> 535ed85b3bff9a669c15faf48199b31cd079fd41
 };
 
 /**
