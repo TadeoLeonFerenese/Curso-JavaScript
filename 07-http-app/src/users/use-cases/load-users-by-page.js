@@ -11,6 +11,6 @@ export const loadUsersByPage = async (page = 1) => {
   const data = await res.json();
   //TODO: En esta constante "users" se mapea un array y se retorna con una function arrow la instanciade la clase
   const users = data.map(localHostUserToModel);
-  console.log(users);
+  // console.log(users);
   return users;
 };
