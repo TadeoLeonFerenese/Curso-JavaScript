@@ -1,8 +1,12 @@
+import { renderButtons } from "./presentacion/render-buttons/render-buttons";
+import { renderTable } from "./presentacion/render-table/render-table";
 import usersStore from "./strore/users-store";
 
 export const UsersApp = async (element) => {
   element.innerHtml = "Loading...";
   await usersStore.loadNextPage();
+  element.innerHtml = ""; //! aca va a ir la data
 
-  console.log(usersStore.getUsers());
+  renderTable(element);
+  renderButtons(element);
 };
