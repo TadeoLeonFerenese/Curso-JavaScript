@@ -1,5 +1,5 @@
-import { renderButtons } from "./presentacion/render-buttons/render-buttons";
-import { renderTable } from "./presentacion/render-table/render-table";
+import { renderButtons } from "./presentation/render-buttons/render-buttons";
+import { renderTable } from "./presentation/render-table/render-table";
 import usersStore from "./strore/users-store";
 
 export const UsersApp = async (element) => {
