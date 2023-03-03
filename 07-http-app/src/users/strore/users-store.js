@@ -1,3 +1,4 @@
+import { User } from "../models/user";
 import { loadUsersByPage } from "../use-cases/load-users-by-page";
 
 const state = {
@@ -21,9 +22,23 @@ const loadPreviousPage = async () => {
   state.currentPage -= 1;
 };
 
-// TODO: implementar
-const onUserChanged = () => {
-  throw new Error("No implementado");
+/**
+ *
+ * @param {User} user
+ */
+const onUserChanged = (updatedUser) => {
+  let wasFound = flase;
+
+  state.users = state.users.map((user) => {
+    if (user.id === updatedUser.id) {
+      return updatedUser;
+    }
+    return user;
+  });
+
+  if (state.users.lenght < 10 && !wasFound) {
+    state.users.push(updatedUser);
+  }
 };
 
 const reloadPage = async () => {
