@@ -27,7 +27,7 @@ const loadPreviousPage = async () => {
  * @param {User} user
  */
 const onUserChanged = (updatedUser) => {
-  let wasFound = flase;
+  let wasFound = false;
 
   state.users = state.users.map((user) => {
     if (user.id === updatedUser.id) {
@@ -42,7 +42,13 @@ const onUserChanged = (updatedUser) => {
 };
 
 const reloadPage = async () => {
-  throw new Error("No implementado");
+  const users = await loadUsersByPage(state.currentPage);
+  if (users.length === 0) {
+    await loadPreviousPage();
+    return;
+  }
+
+  state.users = users;
 };
 
 export default {
